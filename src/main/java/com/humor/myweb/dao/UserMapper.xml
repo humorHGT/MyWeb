@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.humor.myweb.dao.UserMapper">
+    <insert id="insert" parameterType="User">
+        insert into myweb.user (username,userpassword,usersex)
+        values(#{username},#{userpassword},#{usersex})
+    </insert>
+    <delete id="delete" parameterType="int">
+        delete from myweb.user where userid = #{userid}
+    </delete>
+    <update id="update" parameterType="User">
+        update myweb.user
+        set username=#{username},userpassword=#{userpassword},usersex=#{usersex}
+        where userid=#{userid}
+    </update>
+    <select id="query" resultType="List">
+        select * from myweb.user
+    </select>
+</mapper>
